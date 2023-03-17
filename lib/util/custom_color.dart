@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomColor {
+  //app color
   static const Color primaryOlive = Color(0xff787D33);
   static const Color primaryLime = Color(0xffE8F48C);
   static const Color black = Color(0xff000000);
