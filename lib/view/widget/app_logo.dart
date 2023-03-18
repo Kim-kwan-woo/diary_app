@@ -7,9 +7,9 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisSize: MainAxisSize.min,
-      children: [
+      children: const [
         Icon(
           size: 45,
           color: CustomColor.primaryLime,
