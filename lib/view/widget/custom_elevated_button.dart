@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton(
-      {super.key, required this.backgroundColor, required this.childText});
+      {super.key,
+      required this.backgroundColor,
+      required this.childText,
+      required this.onPressed,
+      this.isActivated = true});
 
-  final Color backgroundColor;
-  final String childText;
+  final Color backgroundColor; //배경 색
+  final String childText; //텍스트
+  final VoidCallback onPressed; //onPressed 이벤트
+  final bool isActivated; //버튼 활성화 여부
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,7 @@ class CustomElevatedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      onPressed: () {},
+      onPressed: isActivated ? onPressed : null,
       child: Text(
         style: backgroundColor == CustomColor.primaryLime
             ? CustomTextStyle.b1BoldBlack
