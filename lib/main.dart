@@ -1,7 +1,14 @@
+import 'package:diary_app/firebase_options.dart';
 import 'package:diary_app/view/page/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  //firebase 초기화
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const DiaryApp());
 }
 
