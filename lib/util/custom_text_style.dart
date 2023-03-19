@@ -45,6 +45,11 @@ class CustomTextStyle {
     color: CustomColor.grey,
   );
 
+  static const b1RegularOlive = TextStyle(
+    fontSize: 16,
+    color: CustomColor.primaryOlive,
+  );
+
   //Body2
   static const b2RegularOlive = TextStyle(
     fontSize: 14,
