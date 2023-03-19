@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 class AuthController extends GetxController {
   final Rxn<User> _user = Rxn<User>();
 
+  Rxn<User> get user => _user;
+
   //회원가입
   signup(id, pw) => AuthService().signup(id, pw);
 
@@ -17,6 +19,12 @@ class AuthController extends GetxController {
 
   //로그아웃
   logout() => AuthService().logout();
+
+  //유저 프로필 사진 업로드
+  uploadProfileImage(String downloadUrl) async {
+    _user.value!.updatePhotoURL(downloadUrl);
+  }
+
   @override
   void onInit() {
     super.onInit();
