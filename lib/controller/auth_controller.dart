@@ -22,7 +22,6 @@ class AuthController extends GetxController {
     super.onInit();
 
     FirebaseAuth.instance.authStateChanges().listen((value) {
-      print(value);
       _user(value);
       if (value != null) {
         Get.offAllNamed(AppRoutes.main);
