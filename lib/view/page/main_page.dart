@@ -1,5 +1,4 @@
 import 'package:diary_app/controller/main_controller.dart';
-import 'package:diary_app/util/custom_color.dart';
 import 'package:diary_app/util/custom_text_style.dart';
 import 'package:diary_app/view/screen/home_screen.dart';
 import 'package:diary_app/view/screen/my_screen.dart';
@@ -14,6 +13,7 @@ class MainPage extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         minimum: const EdgeInsets.all(16),
         child: Column(
