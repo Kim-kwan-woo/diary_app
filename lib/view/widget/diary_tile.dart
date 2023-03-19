@@ -12,11 +12,13 @@ class DiaryTile extends StatelessWidget {
       {super.key,
       required this.diaryName,
       required this.onSubmitted,
-      required this.onDeleted});
+      required this.onDeleted,
+      required this.onTap});
 
   final String diaryName;
   final Function(String)? onSubmitted;
   final Function() onDeleted;
+  final Function() onTap;
   Rx<ViewState> state = ViewState.view.obs;
   TextEditingController controller = TextEditingController();
 
@@ -24,6 +26,7 @@ class DiaryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => ListTile(
+        onTap: onTap,
         //view 상태에서는 다이어리 이름, edit 상태에서는 텍스트 필드 출력
         title: state == ViewState.view
             ? Text(
@@ -65,8 +68,8 @@ class DiaryTile extends StatelessWidget {
                       Get.back();
                     },
                     secondOnPressed: () {
-                      onDeleted();
                       Get.back();
+                      onDeleted();
                     },
                   ),
                 ),

@@ -5,6 +5,7 @@ import 'package:diary_app/controller/auth_controller.dart';
 import 'package:diary_app/model/diary.dart';
 import 'package:diary_app/service/db_service.dart';
 import 'package:diary_app/service/storage_service.dart';
+import 'package:diary_app/util/custom_color.dart';
 import 'package:diary_app/view/widget/custom_bottom_sheet.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
@@ -31,6 +32,15 @@ class MainController extends GetxController {
   createDiary() async {
     Diary diary = Diary(name: '새로운 다이어리', uid: getUser().value!.uid);
     await DBService().createDiary(diary);
+
+    Get.snackbar(
+      '다이어리 생성 성공',
+      '새로운 다이어리가 생성되었습니다.',
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: CustomColor.black,
+      colorText: CustomColor.white,
+    );
+
     readDiary();
   }
 
@@ -49,6 +59,15 @@ class MainController extends GetxController {
   //다이어리 삭제
   deleteDiary(String id) async {
     await DBService().deleteDiary(id);
+
+    Get.snackbar(
+      '다이어리 삭제',
+      '다이어리가 삭제되었습니다.',
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: CustomColor.black,
+      colorText: CustomColor.white,
+    );
+
     readDiary();
   }
 
