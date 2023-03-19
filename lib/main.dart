@@ -1,5 +1,6 @@
 import 'package:diary_app/controller/auth_controller.dart';
 import 'package:diary_app/controller/login_controller.dart';
+import 'package:diary_app/controller/main_controller.dart';
 import 'package:diary_app/controller/signup_controller.dart';
 import 'package:diary_app/firebase_options.dart';
 import 'package:diary_app/util/app_pages.dart';
@@ -29,6 +30,7 @@ class DiaryApp extends StatelessWidget {
         Get.put(AuthController());
         Get.lazyPut(() => LoginController(), fenix: true);
         Get.lazyPut(() => SignupController(), fenix: true);
+        Get.lazyPut(() => MainController(), fenix: true);
       }),
       getPages: AppPages.pages,
       home: const LoginPage(),
