@@ -20,6 +20,7 @@ class MyScreen extends GetView<MainController> {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
+                  //프로필 이미지
                   Obx(
                     () => CircleAvatar(
                       radius: 45,
@@ -29,6 +30,7 @@ class MyScreen extends GetView<MainController> {
                           : null,
                     ),
                   ),
+                  //프로필 이미지 변경 버튼
                   Positioned(
                     bottom: -12,
                     right: -12,
@@ -67,10 +69,12 @@ class MyScreen extends GetView<MainController> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  //사용자 이메일
                   Text(
                     style: CustomTextStyle.b1BoldBlack,
                     controller.getUser().value!.email!,
                   ),
+                  //로그아웃 버튼
                   CustomTextButton(
                     childText: '로그아웃',
                     onPressed: controller.logout,
@@ -80,6 +84,7 @@ class MyScreen extends GetView<MainController> {
             ],
           ),
         ),
+        //총 다이어리 수
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
@@ -96,6 +101,7 @@ class MyScreen extends GetView<MainController> {
             ],
           ),
         ),
+        //총 노트 수
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(

@@ -12,10 +12,10 @@ class CustomBottomSheet extends StatelessWidget {
       required this.firstOnPressed,
       required this.secondOnPressed});
 
-  final String firstText;
-  final String secondText;
-  final VoidCallback firstOnPressed;
-  final VoidCallback secondOnPressed;
+  final String firstText; //첫 번째 텍스트
+  final String secondText; //두 번째 텍스트
+  final VoidCallback firstOnPressed; //첫 번째 옵션 onPressed
+  final VoidCallback secondOnPressed; //두 번째 옵션 onPressed
 
   @override
   Widget build(BuildContext context) {
