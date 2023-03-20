@@ -35,6 +35,7 @@ dependencies:
   firebase_storage: ^11.0.16
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.2.19
   get: ^4.6.5
   google_sign_in: ^6.0.2
   image_picker: ^0.8.7

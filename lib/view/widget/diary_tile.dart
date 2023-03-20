@@ -5,7 +5,7 @@ import 'package:diary_app/view/widget/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-enum ViewState { view, edit }
+enum DiaryState { view, edit }
 
 class DiaryTile extends StatelessWidget {
   DiaryTile(
@@ -19,7 +19,7 @@ class DiaryTile extends StatelessWidget {
   final Function(String)? onSubmitted;
   final Function() onDeleted;
   final Function() onTap;
-  Rx<ViewState> state = ViewState.view.obs;
+  Rx<DiaryState> state = DiaryState.view.obs;
   TextEditingController controller = TextEditingController();
 
   @override
@@ -28,7 +28,7 @@ class DiaryTile extends StatelessWidget {
       () => ListTile(
         onTap: onTap,
         //view 상태에서는 다이어리 이름, edit 상태에서는 텍스트 필드 출력
-        title: state == ViewState.view
+        title: state == DiaryState.view
             ? Text(
                 style: CustomTextStyle.b1RegularOlive,
                 diaryName,
@@ -50,13 +50,13 @@ class DiaryTile extends StatelessWidget {
                     ),
                   ),
                   CustomTextButton(
-                    onPressed: () => state(ViewState.view),
+                    onPressed: () => state(DiaryState.view),
                     childText: '취소',
                   ),
                 ],
               ),
         //view 상태에서는 옵션 보여주기, edit 상태에서는 옵션 없음
-        trailing: state == ViewState.view
+        trailing: state == DiaryState.view
             ? IconButton(
                 onPressed: () => Get.bottomSheet(
                   CustomBottomSheet(
@@ -64,7 +64,7 @@ class DiaryTile extends StatelessWidget {
                     secondText: '삭제하기',
                     firstOnPressed: () {
                       controller.text = diaryName;
-                      state(ViewState.edit);
+                      state(DiaryState.edit);
                       Get.back();
                     },
                     secondOnPressed: () {

@@ -46,13 +46,26 @@ class DBService {
   }
 
   //노트 가져오기
-  Future<List<QueryDocumentSnapshot<Note>>> readNote(String noteId) async {
-    var data = await _noteRef.where('diaryId', isEqualTo: noteId).get();
+  Future<List<QueryDocumentSnapshot<Note>>> readNote(String diaryId) async {
+    var data = await _noteRef.where('diaryId', isEqualTo: diaryId).get();
+    return data.docs;
+  }
+
+  //노트 하나 가져오기
+  Future<List<QueryDocumentSnapshot<Note>>> getNote(String noteId) async {
+    var data = await _noteRef.where('id', isEqualTo: noteId).get();
     return data.docs;
   }
 
   //노트 삭제
   deleteNote(String id) {
     _noteRef.doc(id).delete();
+  }
+
+  //노트 수정
+  updateNote(String id, String title, String content, String? imageUrl) {
+    _noteRef
+        .doc(id)
+        .update({'title': title, 'content': content, 'imageUrl': imageUrl});
   }
 }
