@@ -48,7 +48,15 @@ class DiaryDetailPage extends GetView<DiaryDetailController> {
                     physics: const BouncingScrollPhysics(),
                     itemCount: controller.noteList.length,
                     itemBuilder: (context, index) {
-                      return NoteTile(note: controller.noteList[index].data());
+                      return NoteTile(
+                        note: controller.noteList[index].data(),
+                        onTap: () => Get.toNamed(
+                          AppRoutes.noteDetail,
+                          arguments: {
+                            'note': controller.noteList[index].data()
+                          },
+                        ),
+                      );
                     },
                   ),
                 );

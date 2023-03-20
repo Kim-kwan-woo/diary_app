@@ -48,7 +48,7 @@ class DiaryTitleTile extends StatelessWidget {
               splashRadius: 1,
               onPressed: () {},
               icon: const Icon(
-                Icons.sort,
+                Icons.more_vert,
               ),
             ),
           ),

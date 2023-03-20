@@ -3,6 +3,7 @@ import 'package:diary_app/view/page/diary_detail_page.dart';
 import 'package:diary_app/view/page/login_page.dart';
 import 'package:diary_app/view/page/main_page.dart';
 import 'package:diary_app/view/page/note_add_page.dart';
+import 'package:diary_app/view/page/note_detail_page.dart';
 import 'package:diary_app/view/page/signup_page.dart';
 import 'package:get/get.dart';
 
@@ -15,5 +16,7 @@ class AppPages {
         name: AppRoutes.diaryDetail,
         page: () => const DiaryDetailPage()), //다이어리 상세
     GetPage(name: AppRoutes.noteAdd, page: () => const NoteAddPage()), //노트 추가
+    GetPage(
+        name: AppRoutes.noteDetail, page: () => const NoteDetailPage()), //노트 상세
   ];
 }

@@ -21,6 +21,5 @@ class DiaryDetailController extends GetxController {
   void onInit() {
     super.onInit();
     readNote();
-    print(noteList);
   }
 }
