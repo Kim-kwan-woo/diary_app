@@ -34,7 +34,10 @@ class HomeScreen extends GetView<MainController> {
                 //커스텀 다이어리 타일
                 return DiaryTile(
                   diaryName: controller.diaryList[index].data().name,
-                  onTap: () => Get.toNamed(AppRoutes.diaryDetail),
+                  onTap: () => Get.toNamed(AppRoutes.diaryDetail, arguments: {
+                    'diary': controller.diaryList[index].data(),
+                    'diaryId': controller.diaryList[index].id,
+                  }),
                   onSubmitted: (value) {
                     controller.updateDiaryName(
                         controller.diaryList[index].id, value);

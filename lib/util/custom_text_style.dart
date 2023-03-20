@@ -55,4 +55,10 @@ class CustomTextStyle {
     fontSize: 14,
     color: CustomColor.primaryOlive,
   );
+
+  //Body3
+  static const b3RegularGrey = TextStyle(
+    fontSize: 12,
+    color: CustomColor.grey,
+  );
 }

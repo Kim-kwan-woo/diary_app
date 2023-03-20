@@ -12,4 +12,11 @@ class StorageService {
     await ref.putFile(file);
     return ref.getDownloadURL();
   }
+
+  //노트 이미지 업로드
+  Future<String> uploadNoteImage(String diaryId, File file) async {
+    var ref = _firebaseStorage.ref('note/$diaryId');
+    await ref.putFile(file);
+    return ref.getDownloadURL();
+  }
 }

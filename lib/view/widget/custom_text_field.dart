@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.obscureText = false,
     this.errorText,
+    this.maxLines = 1,
   });
 
   final String hintText; //힌트 텍스트
@@ -17,12 +18,14 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChanged;
   final bool obscureText;
   String? errorText; //오류 메세지
+  int? maxLines; //텍스트 필드 줄 수
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
       obscureText: obscureText,
+      maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: CustomTextStyle.b1RegularGrey,

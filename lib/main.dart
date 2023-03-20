@@ -1,10 +1,11 @@
 import 'package:diary_app/controller/auth_controller.dart';
+import 'package:diary_app/controller/diary_detail_controller.dart';
 import 'package:diary_app/controller/login_controller.dart';
 import 'package:diary_app/controller/main_controller.dart';
+import 'package:diary_app/controller/note_add_controller.dart';
 import 'package:diary_app/controller/signup_controller.dart';
 import 'package:diary_app/firebase_options.dart';
 import 'package:diary_app/util/app_pages.dart';
-import 'package:diary_app/util/app_routes.dart';
 import 'package:diary_app/view/page/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,8 @@ class DiaryApp extends StatelessWidget {
         Get.lazyPut(() => LoginController(), fenix: true);
         Get.lazyPut(() => SignupController(), fenix: true);
         Get.lazyPut(() => MainController(), fenix: true);
+        Get.lazyPut(() => DiaryDetailController(), fenix: true);
+        Get.lazyPut(() => NoteAddController(), fenix: true);
       }),
       getPages: AppPages.pages,
       home: const LoginPage(),
