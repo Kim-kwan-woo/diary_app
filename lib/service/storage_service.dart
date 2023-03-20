@@ -14,9 +14,14 @@ class StorageService {
   }
 
   //노트 이미지 업로드
-  Future<String> uploadNoteImage(String diaryId, File file) async {
-    var ref = _firebaseStorage.ref('note/$diaryId');
+  Future<String> uploadNoteImage(String noteId, File file) async {
+    var ref = _firebaseStorage.ref('note/$noteId');
     await ref.putFile(file);
     return ref.getDownloadURL();
+  }
+
+  //노트 이미지 삭제
+  deleteNoteImage(String noteId) {
+    _firebaseStorage.ref('note/$noteId').delete();
   }
 }

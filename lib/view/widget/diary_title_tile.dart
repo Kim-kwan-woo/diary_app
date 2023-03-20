@@ -6,9 +6,13 @@ enum NoteViewState { view, edit }
 
 class DiaryTitleTile extends StatelessWidget {
   DiaryTitleTile(
-      {super.key, required this.title, this.state = NoteViewState.view});
+      {super.key,
+      required this.title,
+      required this.onPressed,
+      this.state = NoteViewState.view});
 
   final String title;
+  final VoidCallback onPressed;
   NoteViewState state;
 
   @override
@@ -46,7 +50,7 @@ class DiaryTitleTile extends StatelessWidget {
             bottom: 0,
             child: IconButton(
               splashRadius: 1,
-              onPressed: () {},
+              onPressed: onPressed,
               icon: const Icon(
                 Icons.more_vert,
               ),

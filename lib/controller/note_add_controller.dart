@@ -45,6 +45,7 @@ class NoteAddController extends GetxController {
       await DBService().createNote(
         id,
         Note(
+          id: id,
           diaryId: diaryId,
           title: titleController.text,
           content: contentController.text,

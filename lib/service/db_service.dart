@@ -50,4 +50,9 @@ class DBService {
     var data = await _noteRef.where('diaryId', isEqualTo: noteId).get();
     return data.docs;
   }
+
+  //노트 삭제
+  deleteNote(String id) {
+    _noteRef.doc(id).delete();
+  }
 }

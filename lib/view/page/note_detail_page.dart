@@ -1,6 +1,8 @@
 import 'package:diary_app/controller/note_detail_controller.dart';
 import 'package:diary_app/util/custom_color.dart';
 import 'package:diary_app/util/custom_text_style.dart';
+import 'package:diary_app/view/widget/custom_bottom_sheet.dart';
+import 'package:diary_app/view/widget/cutom_dialog.dart';
 import 'package:diary_app/view/widget/diary_title_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +23,35 @@ class NoteDetailPage extends GetView<NoteDetailController> {
         minimum: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            DiaryTitleTile(title: controller.diary.name),
+            DiaryTitleTile(
+              title: controller.diary.name,
+              onPressed: () {
+                BottomSheetType? option;
+                Get.bottomSheet(
+                  CustomBottomSheet(
+                    firstText: '수정하기',
+                    secondText: '삭제하기',
+                    firstOnPressed: () {
+                      option = BottomSheetType.first;
+                      Get.back();
+                    },
+                    secondOnPressed: () {
+                      Get.back();
+                      Get.dialog(
+                        CustomDialog(
+                          middleText: '노트를\n삭제하시겠습니까?',
+                          onConfirm: () {
+                            Get.back();
+                            controller.deleteNote(controller.note.id);
+                          },
+                          onCancel: () => Get.back(),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
             Expanded(
               child: ListView(
                 physics: const BouncingScrollPhysics(),

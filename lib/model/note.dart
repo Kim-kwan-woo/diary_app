@@ -2,6 +2,7 @@ import 'dart:convert';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class Note {
+  String id;
   String diaryId;
   String title;
   String content;
@@ -9,6 +10,7 @@ class Note {
   String? imageUrl;
 
   Note({
+    required this.id,
     required this.diaryId,
     required this.title,
     required this.content,
@@ -18,6 +20,7 @@ class Note {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'diaryId': diaryId,
       'title': title,
       'content': content,
@@ -28,6 +31,7 @@ class Note {
 
   factory Note.fromMap(Map<String, dynamic> map) {
     return Note(
+      id: map['id'] as String,
       diaryId: map['diaryId'] as String,
       title: map['title'] as String,
       content: map['content'] as String,

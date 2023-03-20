@@ -27,6 +27,7 @@ class NoteAddPage extends GetView<NoteAddController> {
             DiaryTitleTile(
               title: controller.diary.name,
               state: NoteViewState.edit,
+              onPressed: () {},
             ),
             Expanded(
               child: ListView(
