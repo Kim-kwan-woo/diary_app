@@ -86,7 +86,7 @@ $ flutter build apk --release --target-platform=android-arm64
 diary_app/build/app/outputs/apk/release/app-release.apk
 ```
 
-## Reference
+## Blog
 
 ### You can see the detailed description of this app 
 
