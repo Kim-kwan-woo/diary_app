@@ -4,6 +4,7 @@ import 'dart:convert';
 class Note {
   String id;
   String diaryId;
+  String uid;
   String title;
   String content;
   DateTime createAt;
@@ -12,6 +13,7 @@ class Note {
   Note({
     required this.id,
     required this.diaryId,
+    required this.uid,
     required this.title,
     required this.content,
     required this.createAt,
@@ -22,6 +24,7 @@ class Note {
     return <String, dynamic>{
       'id': id,
       'diaryId': diaryId,
+      'uid': uid,
       'title': title,
       'content': content,
       'createAt': createAt.millisecondsSinceEpoch,
@@ -33,6 +36,7 @@ class Note {
     return Note(
       id: map['id'] as String,
       diaryId: map['diaryId'] as String,
+      uid: map['uid'] as String,
       title: map['title'] as String,
       content: map['content'] as String,
       createAt: DateTime.fromMillisecondsSinceEpoch(map['createAt'] as int),

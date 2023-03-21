@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:diary_app/controller/auth_controller.dart';
 import 'package:diary_app/controller/diary_detail_controller.dart';
 import 'package:diary_app/model/diary.dart';
 import 'package:diary_app/model/note.dart';
@@ -13,6 +14,7 @@ import 'package:image_picker/image_picker.dart';
 class NoteAddController extends GetxController {
   Diary diary = Get.find<DiaryDetailController>().diary; //다이어리
   String diaryId = Get.find<DiaryDetailController>().diaryId; //다이어리 아이디
+  String uid = Get.find<AuthController>().user.value!.uid; //유저 아이디
 
   Rxn<File> noteImage = Rxn<File>();
   TextEditingController titleController = TextEditingController();
@@ -47,6 +49,7 @@ class NoteAddController extends GetxController {
         Note(
           id: id,
           diaryId: diaryId,
+          uid: uid,
           title: titleController.text,
           content: contentController.text,
           createAt: DateTime.now(),

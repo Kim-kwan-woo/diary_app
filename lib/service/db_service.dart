@@ -45,6 +45,12 @@ class DBService {
     _noteRef.doc(id).set(note);
   }
 
+  //유저의 전체 노트 가져오기
+  Future<List<QueryDocumentSnapshot<Note>>> readNoteWithUid(String uid) async {
+    var data = await _noteRef.where('uid', isEqualTo: uid).get();
+    return data.docs;
+  }
+
   //노트 가져오기
   Future<List<QueryDocumentSnapshot<Note>>> readNote(String diaryId) async {
     var data = await _noteRef.where('diaryId', isEqualTo: diaryId).get();

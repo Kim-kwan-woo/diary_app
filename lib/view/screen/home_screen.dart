@@ -1,7 +1,6 @@
 import 'package:diary_app/controller/main_controller.dart';
 import 'package:diary_app/util/app_routes.dart';
 import 'package:diary_app/util/custom_color.dart';
-import 'package:diary_app/util/custom_text_style.dart';
 import 'package:diary_app/view/widget/custom_elevated_button.dart';
 import 'package:diary_app/view/widget/cutom_dialog.dart';
 import 'package:diary_app/view/widget/diary_tile.dart';
@@ -34,10 +33,13 @@ class HomeScreen extends GetView<MainController> {
                 //커스텀 다이어리 타일
                 return DiaryTile(
                   diaryName: controller.diaryList[index].data().name,
-                  onTap: () => Get.toNamed(AppRoutes.diaryDetail, arguments: {
-                    'diary': controller.diaryList[index].data(),
-                    'diaryId': controller.diaryList[index].id,
-                  }),
+                  onTap: () {
+                    Get.toNamed(AppRoutes.diaryDetail, arguments: {
+                      'diary': controller.diaryList[index].data(),
+                      'diaryId': controller.diaryList[index].id,
+                    });
+                    controller.readNoteWithUid();
+                  },
                   onSubmitted: (value) {
                     controller.updateDiaryName(
                         controller.diaryList[index].id, value);

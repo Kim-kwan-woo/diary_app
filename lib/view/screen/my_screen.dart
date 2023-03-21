@@ -89,14 +89,16 @@ class MyScreen extends GetView<MainController> {
           padding: const EdgeInsets.all(20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 style: CustomTextStyle.b1RegularOlive,
                 '내 다이어리',
               ),
-              Text(
-                style: CustomTextStyle.b1RegularOlive,
-                '1',
+              Obx(
+                () => Text(
+                  style: CustomTextStyle.b1RegularOlive,
+                  controller.diaryList.length.toString(),
+                ),
               ),
             ],
           ),
@@ -106,14 +108,16 @@ class MyScreen extends GetView<MainController> {
           padding: const EdgeInsets.all(20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 style: CustomTextStyle.b1RegularOlive,
                 '내 노트',
               ),
-              Text(
-                style: CustomTextStyle.b1RegularOlive,
-                '6',
+              Obx(
+                () => Text(
+                  style: CustomTextStyle.b1RegularOlive,
+                  controller.noteList.length.toString(),
+                ),
               ),
             ],
           ),

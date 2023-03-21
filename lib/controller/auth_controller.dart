@@ -1,7 +1,6 @@
 import 'package:diary_app/service/auth_service.dart';
 import 'package:diary_app/util/app_routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {

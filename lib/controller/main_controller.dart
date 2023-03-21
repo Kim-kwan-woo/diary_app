@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diary_app/controller/auth_controller.dart';
 import 'package:diary_app/model/diary.dart';
+import 'package:diary_app/model/note.dart';
 import 'package:diary_app/service/db_service.dart';
 import 'package:diary_app/service/storage_service.dart';
 import 'package:diary_app/util/custom_color.dart';
@@ -20,6 +21,8 @@ class MainController extends GetxController {
 
   RxList<QueryDocumentSnapshot<Diary>> diaryList =
       RxList<QueryDocumentSnapshot<Diary>>(); //다이어리 리스트
+  RxList<QueryDocumentSnapshot<Note>> noteList =
+      RxList<QueryDocumentSnapshot<Note>>(); //노트 리스트
 
   //유저 정보 가져오기
   Rxn<User> getUser() => Get.find<AuthController>().user;
@@ -95,9 +98,16 @@ class MainController extends GetxController {
     }
   }
 
+  //유저의 노트 모두 가져오기
+  readNoteWithUid() async {
+    noteList.clear();
+    noteList(await DBService().readNoteWithUid(getUser().value!.uid));
+  }
+
   @override
   void onInit() {
     super.onInit();
     readDiary();
+    readNoteWithUid();
   }
 }
